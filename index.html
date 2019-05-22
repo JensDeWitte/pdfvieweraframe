@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>>>> Title goes here <<<</title>
-<script type="text/javascript" src="js/aframe.v1.0.0-alpha.min.js"></script><script type="text/javascript" src="js/dashjs.v1.0.0-alpha.min.js"></script><script type="text/javascript" src="js/experience.v1.0.0-alpha.min.js"></script></head>
+<script type="text/javascript" src="js/icons.v1.0.0-alpha.min.js"></script><script type="text/javascript" src="js/aframe.v1.0.0-alpha.min.js"></script><script type="text/javascript" src="js/dashjs.v1.0.0-alpha.min.js"></script><script type="text/javascript" src="js/experience.v1.0.0-alpha.min.js"></script></head>
 <body>
-<a-scene>
-    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-    <a-sky color="#ECECEC"></a-sky>
-</a-scene>
+    <a id="PDFEnterVRButton" href="#"></a>
+  <div class="instructionsContainer">
+    <div class="row">
+      <div class="left">
+        <h2 class="title">Lucidweb VR PDF Viewer</h2>
+        <p class="instruction">Drag to rotate 360-degree PDF with the mouse.</p>
+        <p class="instruction">Press Arrow keys or WASD keys to move the PDF.</p>
+      </div>
+      <div class="constrols-2d center">
+        <button id="prev" type="button" class="btn btn-success">Previous</button>
+        <button id="next" type="button" class="btn btn-primary">Next</button>
+        <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+      </div>
+    </div>
+  </div>
+  <a-scene vr-mode-ui="enterVRButton: #PDFEnterVRButton">
+    <a-entity light="type: ambient; color: white"></a-entity>
+    <a-entity camera wasd-controls look-controls position="0 0 20"></a-entity>
+    <a-sky color="#1B1B1B"></a-sky>
+  </a-scene>
+  <div class="canvas">
+    <canvas class="thumbnail-canvas"></canvas>
+    <canvas class="the-canvas"></canvas>
+  </div>
 </body>
 </html>
